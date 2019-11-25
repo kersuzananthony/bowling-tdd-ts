@@ -1,10 +1,12 @@
 export default class Game {
 
-  public roll(pins) {
+  private _score = 0;
 
+  public roll(pins) {
+    this._score += pins;
   }
 
   public score() {
-    return 0;
+    return this._score;
   }
 }

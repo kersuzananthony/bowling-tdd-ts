@@ -12,8 +12,17 @@ describe("Bowling game", () => {
     for (let i = 0; i < 20; i++) {
       game.roll(0);
     }
-    console.log(game);
 
     expect(game.score()).toEqual(0);
+  });
+
+  it("should return a score equals to 20 because all roll hit one pin", () => {
+    const game = new Game();
+
+    for (let i = 0; i < 20; i++) {
+      game.roll(1);
+    }
+
+    expect(game.score()).toEqual(20);
   });
 });
