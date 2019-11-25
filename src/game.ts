@@ -1,12 +1,20 @@
 export default class Game {
 
-  private _score = 0;
+  private _rolls: number[] = [];
+  private _currentRoll = 0;
 
   public roll(pins) {
-    this._score += pins;
+    this._rolls[this._currentRoll] = pins;
+    this._currentRoll = this._currentRoll + 1;
   }
 
   public score() {
-    return this._score;
+    let score = 0;
+
+    for (let i = 0; i < this._rolls.length; i++) {
+      score += this._rolls[i];
+    }
+
+    return score;
   }
 }

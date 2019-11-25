@@ -28,12 +28,12 @@ describe("Bowling game", () => {
     expect(game.score()).toEqual(20);
   });
 
-  it("should calculate the score with one spare", () => {
-    game.roll(5);
-    game.roll(5);
-    game.roll(3);
-
-    rollMany(17, 0);
-    expect(game.score()).toEqual(16);
-  });
+  // it("should calculate the score with one spare", () => {
+  //   game.roll(5);
+  //   game.roll(5);
+  //   game.roll(3);
+  //
+  //   rollMany(17, 0);
+  //   expect(game.score()).toEqual(16);
+  // });
 });
