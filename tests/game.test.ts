@@ -36,4 +36,18 @@ describe("Bowling game", () => {
     rollMany(17, 0);
     expect(game.score()).toEqual(16);
   });
+
+  it("should calculate the score with two spares", () => {
+    game.roll(5);
+    game.roll(5);
+    game.roll(3);
+
+    rollMany(13, 0);
+
+    game.roll(5);
+    game.roll(5);
+    game.roll(4);
+    game.roll(0);
+    expect(game.score()).toEqual(34);
+  });
 });
