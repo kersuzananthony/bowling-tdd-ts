@@ -3,7 +3,7 @@ export default class Game {
   private _rolls: number[] = [];
   private _currentRoll = 0;
 
-  public roll(pins) {
+  public roll(pins: number) {
     this._rolls[this._currentRoll] = pins;
     this._currentRoll = this._currentRoll + 1;
   }
