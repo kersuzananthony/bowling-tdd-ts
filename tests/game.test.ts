@@ -10,6 +10,10 @@ describe("Bowling game", () => {
     }
   };
 
+  const rollStrike = () => {
+    game.roll(10);
+  };
+
   beforeEach(() => {
     game = new Game();
   });
@@ -52,10 +56,15 @@ describe("Bowling game", () => {
   });
 
   it("should calculate the score with one strike", () => {
-    game.roll(10);
+    rollStrike();
     game.roll(3);
     game.roll(4);
     rollMany(16, 0);
     expect(game.score()).toEqual(24);
-  })
+  });
+
+  it("should calculate the perfect game score", () => {
+    rollMany(12, 10);
+    expect(game.score()).toEqual(300);
+  });
 });
