@@ -13,16 +13,23 @@ export default class Game {
     let frameIndex = 0;
 
     for (let frame = 0; frame < 10; frame++) {
-      if (this._isSpareFrame(frameIndex)) {
+      if (this._isStrike(frameIndex)) {
+        score += 10 + this._rolls[frameIndex + 1] + this._rolls[frameIndex + 2];
+        frameIndex += 1;
+      } else if (this._isSpareFrame(frameIndex)) {
         score += 10 + this._rolls[frameIndex + 2];
+        frameIndex += 2;
       } else {
         score += this._rolls[frameIndex] + this._rolls[frameIndex + 1];
+        frameIndex += 2;
       }
-
-      frameIndex += 2;
     }
 
     return score;
+  }
+
+  private _isStrike(frameIndex: number): boolean {
+    return this._rolls[frameIndex] === 10;
   }
 
   private _isSpareFrame(frameIndex: number): boolean {

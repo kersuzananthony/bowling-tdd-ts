@@ -50,4 +50,12 @@ describe("Bowling game", () => {
     game.roll(0);
     expect(game.score()).toEqual(34);
   });
+
+  it("should calculate the score with one strike", () => {
+    game.roll(10);
+    game.roll(3);
+    game.roll(4);
+    rollMany(16, 0);
+    expect(game.score()).toEqual(24);
+  })
 });
