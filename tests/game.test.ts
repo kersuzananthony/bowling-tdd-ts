@@ -67,4 +67,18 @@ describe("Bowling game", () => {
     rollMany(12, 10);
     expect(game.score()).toEqual(300);
   });
+
+  it("should calculate score for final spare + strike", () => {
+    rollMany(18, 0);
+    game.roll(5);
+    game.roll(5);
+    rollStrike();
+    expect(game.score()).toEqual(20);
+  });
+
+  it("should calculate score for final 3 strikes", () => {
+    rollMany(18, 0);
+    rollMany(3, 10);
+    expect(game.score()).toEqual(30);
+  });
 });
